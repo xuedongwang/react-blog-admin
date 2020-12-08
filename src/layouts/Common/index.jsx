@@ -18,17 +18,22 @@ class Home extends Component {
     }
     this.toggle = this.toggle.bind(this);
   }
-  toggle() {
+  toggle () {
     this.setState({
       collapsed: !this.state.collapsed,
     });
-  };
+  }
+  handleClick (args) {
+    console.log(args)
+  }
   render () {
     return (
       <div className={style.layout}>
         <Layout>
-          <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Sider style={{
+            height: '100vh',
+          }} trigger={null} collapsible collapsed={this.state.collapsed}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick}>
               <Menu.Item key="1" icon={<UserOutlined />}>
                 nav 1
               </Menu.Item>
