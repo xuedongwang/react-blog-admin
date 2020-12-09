@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -14,9 +15,10 @@ class Home extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      collapsed: false,
+      collapsed: false
     }
     this.toggle = this.toggle.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   toggle () {
     this.setState({
@@ -29,6 +31,9 @@ class Home extends Component {
   render () {
     return (
       <div className={style.layout}>
+        <Helmet>
+          <title>主页</title>
+        </Helmet>
         <Layout>
           <Sider style={{
             height: '100vh',
