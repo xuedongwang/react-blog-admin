@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Layout, Menu } from 'antd';
+import { withRouter } from 'react-router-dom';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
 } from '@ant-design/icons';
+import { menu } from '@/config';
 import style from './style.module.scss';
 const { Header, Sider, Content } = Layout;
 
@@ -15,18 +14,24 @@ class Home extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      collapsed: false
+      collapsed: false,
+      defaultSelectedKeys: menu.defaultSelectedKeys
     }
     this.toggle = this.toggle.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
   toggle () {
     this.setState({
-      collapsed: !this.state.collapsed,
+      collapsed: !this.state.collapsed
     });
   }
-  handleClick (args) {
-    console.log(args)
+  componentDidMount () {
+    this.setState({
+      defaultSelectedKeys: this.props.history.location.pathname
+    })
+  }
+  handleClick (e) {
+    this.props.history.push(e.key);
   }
   render () {
     return (
@@ -38,16 +43,14 @@ class Home extends Component {
           <Sider style={{
             height: '100vh',
           }} trigger={null} collapsible collapsed={this.state.collapsed}>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick}>
-              <Menu.Item key="1" icon={<UserOutlined />}>
-                nav 1
-              </Menu.Item>
-              <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                nav 2
-              </Menu.Item>
-              <Menu.Item key="3" icon={<UploadOutlined />}>
-                nav 3
-              </Menu.Item>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys} onClick={this.handleClick}>
+              {
+                menu.list.map(menuItem => (
+                  <Menu.Item key={menuItem.key} icon={<menuItem.icon/>}>
+                    { menuItem.name }
+                  </Menu.Item>
+                ))
+              }
             </Menu>
           </Sider>
           <Layout>
@@ -74,4 +77,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

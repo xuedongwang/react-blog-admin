@@ -1,16 +1,16 @@
-.layout {
-  .trigger {
-    font-size: 18px;
-    line-height: 64px;
-    padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-    &:hover {
-      color: #1890ff;
+.box {
+  font-size: 12px;
+  box-shadow: 0 0 10px #ececec;
+  padding: 20px;
+  .count {
+    display: flex;
+    align-items: baseline;
+    .value {
+      font-size: 23px;
     }
   }
-  .siteLayoutBackground {
-    background: #fff;
+  .name {
+    font-size: 14px;
+    margin-top: 5px;
   }
 }
-

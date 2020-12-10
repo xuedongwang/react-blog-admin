@@ -10,7 +10,7 @@ const initState = {
 const article = (state = initState, action) => {
   switch (action.type) {
     case SET_ARTICLES:
-      return action.data;
+      return action.payload;
     default:
       return state;
   }

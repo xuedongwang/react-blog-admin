@@ -33,9 +33,17 @@ const columns = [
   },
 ];
 
-class Home extends Component {
+class Article extends Component {
   constructor (props) {
     super(props);
+  }
+  componentDidMount () {
+    this.props.setArticles({
+      list: [
+        1,
+        2
+      ]
+    });
   }
   render () {
     return (
@@ -46,4 +54,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Article;
