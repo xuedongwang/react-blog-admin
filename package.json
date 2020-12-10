@@ -2,7 +2,7 @@
   "name": "react-blog-admin",
   "version": "1.0.0",
   "description": "blog-admin",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "dev": "webpack-dev-server --config=build/webpack.dev.config.js",
     "commit": "git add . && git commit -m 'commit' && git push"
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/xuedongwang/react-blog-admin.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Xuedong Wang",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xuedongwang/react-blog-admin/issues"
