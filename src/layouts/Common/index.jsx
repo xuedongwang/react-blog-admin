@@ -26,12 +26,13 @@ class Home extends Component {
     });
   }
   componentDidMount () {
-    this.setState({
-      defaultSelectedKeys: this.props.history.location.pathname
-    })
+    
   }
   handleClick (e) {
-    this.props.history.push(e.key);
+    this.setState({
+      defaultSelectedKeys: e.key
+    })
+    // this.props.history.push(e.key);
   }
   render () {
     return (
