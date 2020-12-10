@@ -12,7 +12,8 @@ import {
 } from '@ant-design/icons';
 
 const menuConfig = {
-  defaultSelectedKeys: '/',
+  defaultSelectedKeys: ['/'],
+  theme: 'dark',
   list: [
     {
       path: '/',

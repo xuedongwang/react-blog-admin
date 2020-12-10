@@ -1,1 +1,3 @@
+export const SET_BREADCRUMB = 'SET_BREADCRUMB';
+
 export const SET_ARTICLES = 'SET_ARTICLES';

@@ -2,7 +2,7 @@
   .trigger {
     font-size: 18px;
     line-height: 64px;
-    padding: 0 24px;
+    padding: 0 16px;
     cursor: pointer;
     transition: color 0.3s;
     &:hover {
@@ -11,6 +11,27 @@
   }
   .siteLayoutBackground {
     background: #fff;
+  }
+  .siteLayoutHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 16px;
+    padding-left: 0;
+    .headerRight {
+      flex: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .userinfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .nickname {
+          margin-right: 10px;
+        }
+      }
+    }
   }
 }
 

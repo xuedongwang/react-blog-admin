@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
+
 const dataSource = [
   {
     key: '1',
@@ -33,18 +34,12 @@ const columns = [
   },
 ];
 
+
 class Article extends Component {
   constructor (props) {
     super(props);
   }
-  componentDidMount () {
-    this.props.setArticles({
-      list: [
-        1,
-        2
-      ]
-    });
-  }
+  componentDidMount () {}
   render () {
     return (
       <div>

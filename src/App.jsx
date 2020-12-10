@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter,
   Switch,
@@ -15,8 +16,9 @@ class App extends Component {
             routes.map((route, index) => (
               <Route
                 key={index}
-                exact={true}
+                exact={route.exact}
                 path={route.path}
+                strict={route.strict}
               >
                 {
                   <route.layout>

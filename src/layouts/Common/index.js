@@ -1,11 +1,13 @@
 import { connect } from 'react-redux'
-import Article from './Article'
+import Common from './Common'
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+  breadcrumb: state.breadcrumb
+})
 
 const mapDispatchToProps = dispatch => ({})
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Article);
+)(Common);

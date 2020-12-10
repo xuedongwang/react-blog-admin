@@ -1,5 +1,5 @@
 import Home from '@/pages/Home';
-import Common from '@/layouts/Common';
+import Common from '@/layouts/Common/index.js';
 import Blank from '@/layouts/Blank';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
@@ -13,36 +13,42 @@ const routes = [
     component: Home,
     layout: Common,
     exact: true,
+    strict: true
   },
   {
     path: '/category',
     component: Category,
     layout: Common,
     exact: true,
+    strict: true
   },
   {
     path: '/article',
     component: Article,
-    layout: Blank,
+    layout: Common,
     exact: true,
+    strict: true
   },
   {
     path: '/register',
     component: Register,
     layout: Blank,
     exact: true,
+    strict: true
   },
   {
     path: '/login',
     component: Login,
     layout: Blank,
     exact: true,
+    strict: true
   },
   {
     path: '*',
     component: NotFound,
     layout: Blank,
     exact: false,
+    strict: true
   },
 ];
 
