@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Layout, Menu } from 'antd';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -18,7 +18,6 @@ class Home extends Component {
       defaultSelectedKeys: menu.defaultSelectedKeys
     }
     this.toggle = this.toggle.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
   toggle () {
     this.setState({
@@ -27,12 +26,6 @@ class Home extends Component {
   }
   componentDidMount () {
     
-  }
-  handleClick (e) {
-    this.setState({
-      defaultSelectedKeys: e.key
-    })
-    // this.props.history.push(e.key);
   }
   render () {
     return (
@@ -44,11 +37,11 @@ class Home extends Component {
           <Sider style={{
             height: '100vh',
           }} trigger={null} collapsible collapsed={this.state.collapsed}>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys} onClick={this.handleClick}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys}>
               {
                 menu.list.map(menuItem => (
                   <Menu.Item key={menuItem.key} icon={<menuItem.icon/>}>
-                    { menuItem.name }
+                    <Link to={menuItem.key}>{ menuItem.name }</Link>
                   </Menu.Item>
                 ))
               }
@@ -78,4 +71,4 @@ class Home extends Component {
   }
 }
 
-export default withRouter(Home);
+export default Home;
