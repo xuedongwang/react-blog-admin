@@ -35,7 +35,7 @@ const columns = [
 ];
 
 
-class Article extends Component {
+class Category extends Component {
   constructor (props) {
     super(props);
   }
@@ -51,4 +51,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default Category;

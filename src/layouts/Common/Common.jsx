@@ -27,7 +27,6 @@ const menuList = (
 class Common extends Component {
   constructor (props) {
     super(props);
-    console.log(props)
     this.state = {
       collapsed: false,
       current: this.props.location.pathname
@@ -89,7 +88,7 @@ class Common extends Component {
                   ))
                 }
               </Breadcrumb>
-              <div className={style.siteLayoutBackground} style={{ padding: 24, minHeight: 360 }}>
+              <div className={style.siteLayoutBackground1} style={{ minHeight: 360 }}>
                 { this.props.children }
               </div>
             </Content>

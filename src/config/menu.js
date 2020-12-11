@@ -6,6 +6,7 @@ import {
   UserOutlined,
   MessageOutlined,
   BarChartOutlined,
+  TeamOutlined,
   DeleteOutlined,
   FolderOpenOutlined,
   DollarOutlined
@@ -36,8 +37,8 @@ const menuConfig = {
     {
       path: '/user',
       key: '/user',
-      name: '用户管理',
-      icon: UserOutlined
+      name: '团队管理',
+      icon: TeamOutlined
     },
     {
       path: '/comment',
@@ -54,7 +55,7 @@ const menuConfig = {
     {
       path: '/material',
       key: '/material',
-      name: '资料库',
+      name: '素材库',
       icon: FolderOpenOutlined
     },
     {
@@ -68,6 +69,12 @@ const menuConfig = {
       key: '/ad',
       name: '广告管理',
       icon: DollarOutlined
+    },
+    {
+      path: '/userinfo',
+      key: '/userinfo',
+      name: '个人信息',
+      icon: UserOutlined
     },
     {
       path: '/setting',
