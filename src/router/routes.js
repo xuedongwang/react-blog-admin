@@ -4,14 +4,23 @@ import Blank from '@/layouts/Blank';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
 import Article from '@/pages/Article';
+import CreateArticle from '@/pages/CreateArticle';
 import Category from '@/pages/Category';
 import NotFound from '@/pages/NotFound';
+import Comment from '@/pages/Comment';
 
 const routes = [
   {
     path: '/',
     component: Home,
     layout: Common,
+    exact: true,
+    strict: true
+  },
+  {
+    path: '/comment',
+    component: Comment,
+    layout: Blank,
     exact: true,
     strict: true
   },
@@ -26,6 +35,13 @@ const routes = [
     path: '/article',
     component: Article,
     layout: Common,
+    exact: true,
+    strict: true
+  },
+  {
+    path: '/create-article',
+    component: CreateArticle,
+    layout: Blank,
     exact: true,
     strict: true
   },

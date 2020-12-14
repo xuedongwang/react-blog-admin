@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Card, Button } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 const dataSource = [
   {
@@ -38,12 +39,19 @@ const columns = [
 class Article extends Component {
   constructor (props) {
     super(props);
+    this.handleCreateArticle = this.handleCreateArticle.bind(this);
+  }
+  handleCreateArticle () {
+    this.props.history.push('/create-article', {
+      a: 1,
+      b: 2
+    })
   }
   componentDidMount () {}
   render () {
     return (
       <div>
-        <Card title="文章管理" bordered={false} extra={<Button type="primary">新建文章</Button>}>
+        <Card title="文章管理" bordered={false} extra={<Button type="primary" onClick={this.handleCreateArticle}>新建文章</Button>}>
           <Table dataSource={dataSource} columns={columns} />
         </Card>
       </div>
@@ -51,4 +59,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default withRouter(Article);
