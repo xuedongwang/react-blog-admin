@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { setArticles } from '@/actions'
+import { fetchUserinfoAsync } from '@/actions'
+
 import Home from './Home'
 
 const mapStateToProps = state => ({
@@ -7,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setArticles: payload => dispatch(setArticles(payload))
+  fetchUserinfoAsync: payload => dispatch(fetchUserinfoAsync(payload))
 })
 
 export default connect(

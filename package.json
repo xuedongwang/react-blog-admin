@@ -5,6 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "dev": "webpack-dev-server --config=build/webpack.dev.config.js",
+    "mock": "nodemon ./server/app.js",
     "commit": "git add . && git commit -m 'commit' && git push"
   },
   "repository": {
@@ -28,7 +29,12 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
+    "koa": "^2.13.0",
+    "koa-router": "^10.0.0",
+    "koa2-cors": "^2.0.6",
+    "mockjs": "^1.1.0",
     "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6",
     "postcss-loader": "^4.1.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
@@ -40,6 +46,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "antd": "^4.9.2",
+    "axios": "^0.21.0",
     "braft-editor": "^2.3.9",
     "braft-extensions": "^0.1.1",
     "draft-js-prism": "^1.0.6",

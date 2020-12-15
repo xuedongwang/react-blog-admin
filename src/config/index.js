@@ -1,5 +1,1 @@
-import menu from './menu';
-
-export {
-  menu
-};
+export { default as menu } from './menu';
