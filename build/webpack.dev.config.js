@@ -67,6 +67,7 @@ const devWebpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
+          esModule: false,
           name: 'img/[name].[ext]'
         }
       },
@@ -75,6 +76,7 @@ const devWebpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
+          esModule: false,
           name: 'media/[name].[ext]'
         }
       },
@@ -83,6 +85,7 @@ const devWebpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
+          esModule: false,
           name: 'fonts/[name].[ext]'
         }
       }
