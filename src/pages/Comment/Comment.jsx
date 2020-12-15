@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader, Button, Popover, List, Skeleton, Avatar } from 'antd';
+import { Card, Button, Popover, List, Skeleton, Avatar } from 'antd';
 
 class CreateArticle extends Component {
   constructor (props) {
@@ -75,12 +75,7 @@ class CreateArticle extends Component {
       ) : null;
     return (
       <div>
-        <PageHeader
-          ghost={false}
-          onBack={() => window.history.back()}
-          title="Title"
-          subTitle="This is a subtitle"
-        >
+        <Card>
           <List
             className="demo-loadmore-list"
             loading={initLoading}
@@ -106,7 +101,7 @@ class CreateArticle extends Component {
               </List.Item>
             )}
           />
-        </PageHeader>
+        </Card>
       </div>
     )
   }

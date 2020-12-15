@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/comment',
     component: Comment,
-    layout: Blank,
+    layout: Common,
     exact: true,
     strict: true
   },

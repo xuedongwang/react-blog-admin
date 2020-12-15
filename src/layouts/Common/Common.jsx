@@ -78,7 +78,12 @@ class Common extends Component {
                 </div>
               </div>
             </Header>
-            <Content style={{ margin: '0 16px' }}>
+            <Content style={{
+              margin: '0 16px',
+              overflow: 'auto',
+              maxHeight: 'calc(100vh - 64px)',
+              paddingBottom: '16px'
+            }}>
               <Breadcrumb style={{ margin: '16px 0' }}>
                 {
                   this.props.breadcrumb.map(item => (
