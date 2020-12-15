@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config=build/webpack.dev.config.js",
     "mock": "nodemon ./server/app.js",
+    "start": "npm run mock & npm run dev",
     "commit": "git add . && git commit -m 'commit' && git push"
   },
   "repository": {
