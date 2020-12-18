@@ -1,11 +1,14 @@
-import { SET_QR_CODE, SET_STATISTICS } from '@/actions/actionTypes';
+import { SET_QR_CODE, SET_STATISTICS, SET_BREADCRUMB } from '@/actions/actionTypes';
+
 
 const initState = {
   statistics: {
     articleCount: '-',
     categoryCount: '-',
     commentCount: '-'
-  }
+  },
+  breadcrumb: [],
+  loginQRCode: ''
 };
 
 const common = (state = initState, action) => {
@@ -20,6 +23,11 @@ const common = (state = initState, action) => {
         ...state,
         statistics: action.data
       }
+    case SET_BREADCRUMB:
+      return {
+        ...state,
+        breadcrumb: action.payload
+      };
     default:
       return state;
   }

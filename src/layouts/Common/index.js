@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import Common from './Common'
 
 const mapStateToProps = state => ({
-  breadcrumb: state.breadcrumb
+  breadcrumb: state.common.breadcrumb
 })
 
 const mapDispatchToProps = dispatch => ({})

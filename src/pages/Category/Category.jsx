@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Card, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 const dataSource = [
   {
@@ -43,7 +44,9 @@ class Category extends Component {
   render () {
     return (
       <div>
-        <Card title="文章管理" bordered={false} extra={<Button type="primary">新建文章</Button>}>
+        <Card title="文章管理" bordered={false} extra={<Button type="primary">
+          <Link to="/create-category">新建分类</Link>
+        </Button>}>
           <Table dataSource={dataSource} columns={columns} />
         </Card>
       </div>

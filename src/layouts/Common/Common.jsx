@@ -29,11 +29,10 @@ class Common extends Component {
     super(props);
     this.state = {
       collapsed: false,
-      current: this.props.location.pathname
+      current: this.props.activeMenu
     }
-    this.handleToggleMenu = this.handleToggleMenu.bind(this);
   }
-  handleToggleMenu () {
+  handleToggleMenu =  () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
@@ -48,7 +47,7 @@ class Common extends Component {
           <Sider style={{
             height: '100vh',
           }} trigger={null} collapsible collapsed={this.state.collapsed}>
-            <Menu theme={menu.theme} onClick={this.handleClick} mode="inline" selectedKeys={[this.state.current]} defaultSelectedKeys={menu.defaultSelectedKeys}>
+            <Menu theme={menu.theme} mode="inline" selectedKeys={[this.state.current]} defaultSelectedKeys={menu.defaultSelectedKeys}>
               {
                 menu.list.map(menuItem => (
                   <Menu.Item key={menuItem.key} icon={<menuItem.icon/>}>
@@ -88,7 +87,12 @@ class Common extends Component {
                 {
                   this.props.breadcrumb.map(item => (
                     <Breadcrumb.Item key={item.name}>
-                      <Link to={item.path}>{ item.name }</Link>
+                      {
+                        item.path
+                        ? <Link to={item.path}>{ item.name }</Link>
+                        : item.name
+                        
+                      }
                     </Breadcrumb.Item>
                   ))
                 }

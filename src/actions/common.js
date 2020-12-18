@@ -1,4 +1,5 @@
 import {
+  SET_BREADCRUMB,
   FETCH_QR_CODE_ASYNC,
   SET_QR_CODE,
   FETCH_STATISTICS_ASYNC,
@@ -29,6 +30,13 @@ export const fetchStatisticsAsync = payload => {
 export const setStatistics = payload => {
   return {
     type: SET_STATISTICS,
+    payload
+  };
+};
+
+export const setBreadcrumb = payload => {
+  return {
+    type: SET_BREADCRUMB,
     payload
   };
 };

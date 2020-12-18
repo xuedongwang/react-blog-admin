@@ -19,9 +19,12 @@ class App extends Component {
                 exact={route.exact}
                 path={route.path}
                 strict={route.strict}
+                state={{a: 1}}
               >
                 {
-                  <route.layout>
+                  <route.layout
+                    { ...(route.meta ?? {}) }
+                  >
                     <route.component/>
                   </route.layout>
                 }

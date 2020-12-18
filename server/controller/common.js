@@ -45,9 +45,9 @@ module.exports = {
     ctx.body = {
       code: 0,
       data: mock({
-        articleCount: () => Random.natural(),
-        categoryCount: () => Random.natural(),
-        commentCount: () => Random.natural(),
+        articleCount: () => Random.natural(0, 100000000),
+        categoryCount: () => Random.natural(0, 100000000),
+        commentCount: () => Random.natural(0, 100000000),
       })
     }
   }

@@ -22,6 +22,9 @@
   "homepage": "https://github.com/xuedongwang/react-blog-admin#readme",
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
@@ -49,6 +52,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
+    "accounting": "^0.4.1",
     "antd": "^4.9.2",
     "axios": "^0.21.0",
     "braft-editor": "^2.3.9",
