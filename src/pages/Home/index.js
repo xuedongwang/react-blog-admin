@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
-import { fetchUserinfoAsync } from '@/actions'
+import { fetchStatisticsAsync } from '@/actions'
 
 import Home from './Home'
 
 const mapStateToProps = state => ({
-  todos: state.article
+  statistics: state.common.statistics
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserinfoAsync: payload => dispatch(fetchUserinfoAsync(payload))
+  fetchStatisticsAsync: payload => dispatch(fetchStatisticsAsync(payload))
 })
 
 export default connect(

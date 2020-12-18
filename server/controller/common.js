@@ -22,8 +22,6 @@ module.exports = {
       uri: GET_ACCESS_TOKEN,
       json: true
     });
-    console.log(access_token);
-    console.log(GET_QR_CODE(access_token))
     const options = {
       method: 'POST',
       uri: GET_QR_CODE(access_token),
@@ -41,6 +39,16 @@ module.exports = {
       data: {
         url: bufferToImg(res)
       }
+    }
+  },
+  statistics: async ctx => {
+    ctx.body = {
+      code: 0,
+      data: mock({
+        articleCount: () => Random.natural(),
+        categoryCount: () => Random.natural(),
+        commentCount: () => Random.natural(),
+      })
     }
   }
 }
