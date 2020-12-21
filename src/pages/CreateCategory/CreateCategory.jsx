@@ -41,14 +41,19 @@ class Category extends Component {
       <div>
         <Card>
           <Form {...layout} onFinish={this.onFinish}>
-            <Form.Item label="分类名" rules={[{
+            <Form.Item label="分类名" name="name" rules={[{
               required: true,
+              message: '请输入分类名',
               min: 1,
               mex: 20
+            }, {
+              type: 'string',
+              mex: 20,
+              message: '长度为1-20位',
             }]}>
               <Input />
             </Form.Item>
-            <Form.Item label="描述">
+            <Form.Item label="描述" name="description">
               <Input.TextArea />
             </Form.Item>
             <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
