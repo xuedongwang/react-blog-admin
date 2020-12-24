@@ -12,9 +12,14 @@ import style from './style.module.scss';
 const { Header, Sider, Content } = Layout;
 
 const menuList = (
-  <Menu>
+  <Menu style={{ width: 100 }}>
     <Menu.Item>
       个人信息
+    </Menu.Item>
+    <Menu.Item>
+    <Badge dot>
+      留言消息
+    </Badge>
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item>
@@ -38,6 +43,7 @@ class Common extends Component {
     });
   }
   render () {
+    const { user, breadcrumb, children } = this.props;
     return (
       <div className={style.layout}>
         <Helmet>
@@ -50,7 +56,7 @@ class Common extends Component {
             <Menu theme={menu.theme} mode="inline" selectedKeys={[this.state.current]} defaultSelectedKeys={menu.defaultSelectedKeys}>
               {
                 menu.list.map(menuItem => (
-                  <Menu.Item key={menuItem.key} icon={<menuItem.icon/>}>
+                  <Menu.Item key={menuItem.key} alt="头像" icon={<menuItem.icon/>}>
                     <Link to={menuItem.key}>{ menuItem.name }</Link>
                   </Menu.Item>
                 ))
@@ -68,10 +74,10 @@ class Common extends Component {
               })}
               <div className={style.headerRight}>
                 <div className={style.userinfo}>
-                  <div className={style.nickname}>用户名啊</div>
+                  <div className={style.nickname}>{ user.nickname }</div>
                   <Dropdown overlay={menuList} trigger="click" placement="bottomRight" arrow={true}>
-                    <Badge size="small" count={99}>
-                      <Avatar size="large" icon={<UserOutlined />} />
+                    <Badge count={user.messageCount} size="small">
+                      <Avatar shape="square" text="xxx" size="medium" src={user.avatar} icon={<UserOutlined />} />
                     </Badge>
                   </Dropdown>
                 </div>
@@ -85,7 +91,7 @@ class Common extends Component {
             }}>
               <Breadcrumb style={{ margin: '16px 0' }}>
                 {
-                  this.props.breadcrumb.map(item => (
+                  breadcrumb.map(item => (
                     <Breadcrumb.Item key={item.name}>
                       {
                         item.path
@@ -98,7 +104,7 @@ class Common extends Component {
                 }
               </Breadcrumb>
               <div className={style.siteLayoutBackground1} style={{ minHeight: 360 }}>
-                { this.props.children }
+                { children }
               </div>
             </Content>
           </Layout>

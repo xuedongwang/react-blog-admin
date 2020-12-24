@@ -8,6 +8,8 @@ import rootReducer from './reducers';
 import { fetchUserinfoAsync } from './actions'
 import App from './App.jsx';
 import './static/scss';
+import zhCN from 'antd/es/locale/zh_CN';
+import { ConfigProvider } from 'antd';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -23,8 +25,10 @@ sagaMiddleware.run(rootSaga);
 store.dispatch(fetchUserinfoAsync())
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ConfigProvider locale={zhCN}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ConfigProvider>,
   document.querySelector('#app')
 );

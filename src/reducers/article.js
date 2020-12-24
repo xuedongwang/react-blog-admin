@@ -1,4 +1,4 @@
-import { SET_ARTICLES } from '@/actions/actionTypes';
+import { SET_ARTICLE_LIST } from '@/actions/actionTypes';
 
 const initState = {
   total: 0,
@@ -7,13 +7,13 @@ const initState = {
   list: []
 };
 
-const article = (state = initState, action) => {
+const articles = (state = initState, action) => {
   switch (action.type) {
-    case SET_ARTICLES:
+    case SET_ARTICLE_LIST:
       return action.payload;
     default:
       return state;
   }
 }
 
-export default article;
+export default articles;

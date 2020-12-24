@@ -44,7 +44,7 @@ class Category extends Component {
   render () {
     return (
       <div>
-        <Card title="文章管理" bordered={false} extra={<Button type="primary">
+        <Card title="分类管理" bordered={false} extra={<Button type="primary">
           <Link to="/create-category">新建分类</Link>
         </Button>}>
           <Table dataSource={dataSource} columns={columns} />
