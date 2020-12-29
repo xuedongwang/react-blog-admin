@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Card, Button, Tag, Space, Popconfirm } from 'antd';
+import { Table, Card, Button, Tag, Space, Popconfirm, Descriptions } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { accounting, timeago } from '@/helper';
 
@@ -16,6 +16,18 @@ const colors = [
   'geekblue',
   'purple'
 ];
+
+function ArticleTag ({ article }) {
+  if (article.isPrivate) {
+    return <Tag color="#ff4d4f">隐私</Tag>;
+  } else if (article.isDraft) {
+    return <Tag color="#faad14">草稿</Tag>;
+  } else if (article.isOrigin) {
+    return <Tag color="#52c41a">转载</Tag>;
+  } else {
+    return <Tag color="#1890ff">原创</Tag>;
+  }
+}
 
 class Article extends Component {
   constructor (props) {
@@ -53,43 +65,38 @@ class Article extends Component {
     const columns = [
       {
         title: '文章标题',
-        dataIndex: 'title',
-      },
-      {
-        title: '作者',
-        dataIndex: 'author',
-      },
-      {
-        title: '关键词',
-        dataIndex: 'keywords',
-        render: keywords => (
+        render: row => (
           <Fragment>
-            {keywords.map(keyword => {
-              return (
-                <Tag color={colors[keyword.length % colors.length]} key={keyword}>
-                  { keyword }
-                </Tag>
-              );
-            })}
+            <ArticleTag article={row}/>
+            <span>{ row.title }</span>
           </Fragment>
         ),
       },
       {
+        title: '作者',
+        width: 100,
+        dataIndex: 'author',
+      },
+      {
         title: '分类',
+        width: 120,
         dataIndex: 'categoryName',
       },
       {
         title: '阅读数',
+        width: 100,
         dataIndex: 'readCount',
         render: readCount => accounting.formatNumber(readCount)
       },
       {
         title: '创建时间',
+        width: 100,
         dataIndex: 'createdAt',
         render: createdAt => timeago(createdAt)
       },
       {
         title: '更新时间',
+        width: 100,
         dataIndex: 'updatedAt',
         render: updatedAt => timeago(updatedAt)
       },
@@ -128,8 +135,25 @@ class Article extends Component {
             columns={columns}
             rowKey="id"
             expandable={{
-              expandedRowRender: record => <p style={{ margin: 0, marginLeft: 49 }}>{record.description}</p>,
-              rowExpandable: record => !!record.description.trim(),
+              expandedRowRender: record =>(
+                <Descriptions
+                  style={{marginLeft: 49}}
+                  column={1}
+                >
+                  <Descriptions.Item label="文章标签">
+                    {
+                      record.keywords.map(keyword => (
+                        <Tag color={colors[keyword.length-1]} key={keyword}>{ keyword }</Tag>
+                      ))
+                    }
+                  </Descriptions.Item>
+                  <br/>
+                  <Descriptions.Item label="文章描述">{ record.description }</Descriptions.Item>
+                </Descriptions>
+              ),
+              rowExpandable: record => (
+                !!record.description.trim()
+              ),
             }}
           />
         </Card>

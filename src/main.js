@@ -4,10 +4,11 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
+import { AppContainer } from 'react-hot-loader';
 import rootReducer from './reducers';
 import { fetchUserinfoAsync } from './actions'
 import App from './App.jsx';
-import './static/scss';
+import './assets/scss';
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
 
@@ -22,13 +23,26 @@ const store = createStore(
 );
 sagaMiddleware.run(rootSaga);
 
-store.dispatch(fetchUserinfoAsync())
+store.dispatch(fetchUserinfoAsync());
 
-ReactDOM.render(
-  <ConfigProvider locale={zhCN}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </ConfigProvider>,
-  document.querySelector('#app')
-);
+const render = App => {
+  ReactDOM.render(
+    <AppContainer>
+      <ConfigProvider locale={zhCN}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ConfigProvider>
+    </AppContainer>,
+    document.querySelector('#app')
+  );
+};
+
+render(App);
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const nextApp = require('./App').default;
+    render(nextApp);
+  })
+}

@@ -26,7 +26,7 @@ class Login extends Component {
             placeholder={
               <Image
                 preview={false}
-                src={require('@/static/images/mini-program-code.png')}
+                src={require('@/assets/images/mini-program-code.png')}
                 width={200}
                 height={200}
               />

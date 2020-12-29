@@ -16,6 +16,9 @@ module.exports = {
         [`list|${perPage}`]: [{
           id: () => Random.id(),
           title: () => Random.csentence(),
+          isPrivate: () => Random.boolean(),
+          isDraft: () => Random.boolean(),
+          isOrigin: () => Random.boolean(),
           author: () => Random.cname(),
           'keywords|0-5': [() => Random.word()],
           categoryName: () => Random.word(),
