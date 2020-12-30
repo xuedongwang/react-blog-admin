@@ -18,6 +18,7 @@ const routes = [
     exact: true,
     strict: true,
     meta: {
+      title: '主页',
       activeMenu: '/'
     }
   },
@@ -28,6 +29,7 @@ const routes = [
     exact: true,
     strict: true,
     meta: {
+      title: '留言管理',
       activeMenu: '/comment'
     }
   },
@@ -38,6 +40,7 @@ const routes = [
     exact: true,
     strict: true,
     meta: {
+      title: '分类管理',
       activeMenu: '/category'
     }
   },
@@ -48,6 +51,7 @@ const routes = [
     exact: true,
     strict: true,
     meta: {
+      title: '创建分类',
       activeMenu: '/category'
     }
   },
@@ -58,6 +62,7 @@ const routes = [
     exact: true,
     strict: true,
     meta: {
+      title: '文章管理',
       activeMenu: '/article'
     }
   },
@@ -67,7 +72,9 @@ const routes = [
     layout: Blank,
     exact: true,
     strict: true,
-    meta: {}
+    meta: {
+      title: '创建文章',
+    }
   },
   {
     path: '/register',
@@ -75,7 +82,9 @@ const routes = [
     layout: Blank,
     exact: true,
     strict: true,
-    meta: {}
+    meta: {
+      title: '注册',
+    }
   },
   {
     path: '/login',
@@ -84,6 +93,7 @@ const routes = [
     exact: true,
     strict: true,
     meta: {
+      title: '登录',
       activeMenu: '/'
     }
   },
@@ -93,7 +103,9 @@ const routes = [
     layout: Blank,
     exact: false,
     strict: true,
-    meta: {}
+    meta: {
+      title: '404',
+    }
   },
 ];
 

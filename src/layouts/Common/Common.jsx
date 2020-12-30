@@ -43,11 +43,12 @@ class Common extends Component {
     });
   }
   render () {
+    console.log(this.props);
     const { user, breadcrumb, children } = this.props;
     return (
       <div className={style.layout}>
         <Helmet>
-          <title>主页</title>
+          <title>{ this.props.title }</title>
         </Helmet>
         <Layout>
           <Sider style={{
@@ -103,7 +104,7 @@ class Common extends Component {
                   ))
                 }
               </Breadcrumb>
-              <div className={style.siteLayoutBackground1} style={{ minHeight: 360 }}>
+              <div style={{ minHeight: 360 }}>
                 { children }
               </div>
             </Content>
