@@ -32,10 +32,28 @@ function ArticleTag ({ article }) {
 class Article extends Component {
   constructor (props) {
     super(props);
-    this.handleCreateArticle = this.handleCreateArticle.bind(this);
+    this.state = {
+      createArticleLoading: false
+    };
   }
-  handleCreateArticle () {
-    this.props.history.push('/create-article')
+  handleCreateArticle = () => {
+    this.setState({
+      createArticleLoading: true
+    })
+    $api
+      .createArticle()
+      .then(res => {
+        this.setState({
+          createArticleLoading: false
+        })
+        this.props.history.push(`/create-article?id=${res.data.id}`)
+      })
+      .catch(err => {
+        this.setState({
+          createArticleLoading: false
+        })
+        throw err;
+      });
   }
   componentDidMount () {
     this.props.fetchArticleListAsync({
@@ -123,7 +141,7 @@ class Article extends Component {
     ];
     return (
       <div>
-        <Card title="文章管理" bordered={false} extra={<Button type="primary" onClick={this.handleCreateArticle}>新建文章</Button>}>
+        <Card title="文章管理" bordered={false} extra={<Button type="primary" loading={this.state.createArticleLoading} onClick={this.handleCreateArticle}>新建文章</Button>}>
           <Table
             pagination={{
               total,

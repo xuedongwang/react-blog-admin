@@ -11,6 +11,7 @@ import App from './App.jsx';
 import './assets/scss';
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
+import * as api from './api';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,7 +23,6 @@ const store = createStore(
   )
 );
 sagaMiddleware.run(rootSaga);
-
 store.dispatch(fetchUserinfoAsync());
 
 const render = App => {
@@ -37,6 +37,8 @@ const render = App => {
     document.querySelector('#app')
   );
 };
+
+window.$api = api;
 
 render(App);
 
