@@ -1,37 +1,82 @@
 import React, { Component } from 'react';
-import { Card, Image } from 'antd';
+import { Card, Form, Input, Button, Space, Divider } from 'antd';
 import style from './style.module';
-import { uuid } from '@/helper';
+// import { uuid } from '@/helper';
+
+const layout = {
+  labelCol: {
+    span: 4,
+  },
+  wrapperCol: {
+    span: 20,
+  },
+};
+const tailLayout = {
+  wrapperCol: {
+    offset: 4,
+    span: 20,
+  },
+};
 
 class Login extends Component {
-  componentDidMount () {
-    this.props.fetchQRCodeAsync({
-      params: {
-        uuid: uuid()
-      }
-    })
+  onFinish = (values) => {
+    this.props.userLoginAsync(values)
   }
   render () {
     return (
       <div className={style.loginWrapper}>
         <Card style={{
-          width: 300,
+          width: 500,
           boxShadow: '0 0 10px #ececec',
-          textAlign: 'center'
           }} title="登录">
-          <Image
-            width={200}
-            height={200}
-            src={this.props.loginQRCode}
-            placeholder={
-              <Image
-                preview={false}
-                src={require('@/assets/images/mini-program-code.png')}
-                width={200}
-                height={200}
-              />
-            }
-          />
+          <Form
+            {...layout}
+            style={{
+            }}
+            name="basic"
+            initialValues={{
+              username: '',
+              password: ''
+            }}
+            onFinish={this.onFinish}
+          >
+            <Form.Item
+              label="用户名"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: '请输入账号',
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="密码"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: '请输入密码',
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                登录
+              </Button>
+            </Form.Item>
+            <Form.Item {...tailLayout}>
+              <a href="/register">注册账号</a>
+              <Divider type="vertical" />
+              <a href="/register">忘记密码？</a>
+            </Form.Item>
+          </Form>
         </Card>
       </div>
     )

@@ -1,14 +1,14 @@
 import { all } from 'redux-saga/effects';
 
-import { watchFetchUserinfoAsync } from './user';
-import { watchFetchArticleListAsync } from './article';
-import { watchFetchLoginQRCode, watchFetchStatistics } from './common';
+import { watchFetchUserinfo, watchUserLogin } from './user';
+import { watchFetchArticleList } from './article';
+import { watchFetchStatistics } from './common';
 
 export default function * rootSaga () {
   yield all([
-    watchFetchUserinfoAsync(),
-    watchFetchArticleListAsync(),
-    watchFetchLoginQRCode(),
+    watchFetchUserinfo(),
+    watchFetchArticleList(),
+    watchUserLogin(),
     watchFetchStatistics(),
   ]);
 }

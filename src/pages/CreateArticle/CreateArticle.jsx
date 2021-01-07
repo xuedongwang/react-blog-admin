@@ -227,9 +227,9 @@ class CreateArticle extends Component {
             </Form.Item>
             <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }} style={{marginBottom: 0}}>
               <Space align="center">
-              <Button type="primary" htmlType="submit" loading={this.state.saveLoading}>发布</Button>
-              <Button onClick={this.handleToggleDrawerVisiable}>取消</Button>
-            </Space>
+                <Button type="primary" htmlType="submit" loading={this.state.saveLoading}>发布</Button>
+                <Button onClick={this.handleToggleDrawerVisiable}>取消</Button>
+              </Space>
             </Form.Item>
           </Form>
         </Drawer>

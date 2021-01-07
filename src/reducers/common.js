@@ -1,4 +1,4 @@
-import { SET_QR_CODE, SET_STATISTICS, SET_BREADCRUMB } from '@/actions/actionTypes';
+import { SET_STATISTICS, SET_BREADCRUMB } from '@/actions/actionTypes';
 
 
 const initState = {
@@ -8,16 +8,11 @@ const initState = {
     commentCount: '-'
   },
   breadcrumb: [],
-  loginQRCode: ''
+  userLoginInfo: ''
 };
 
 const common = (state = initState, action) => {
   switch (action.type) {
-    case SET_QR_CODE:
-      return {
-        ...state,
-        loginQRCode: action.data.url
-      };
     case SET_STATISTICS:
       return {
         ...state,

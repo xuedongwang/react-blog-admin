@@ -1,7 +1,7 @@
 import { http } from '@/helper';
 
 export const fetchUserinfo = args => http.get('/userinfo', args);
-export const fetchLoginQRCode = args => http.get('/get_qr_code', args);
+export const userLogin = args => http.post('/login', args);
 export const fetchStatistics = args => http.get('/statistics', args);
 export const fetchArticleList = args => http.get('/article_list', args);
 export const createArticle = args => http.get('/create_article', args);

@@ -13,5 +13,13 @@ module.exports = {
         gender: () => Random.integer(0, 1)
       })
     }
+  },
+  login: async ctx => {
+    ctx.body = {
+      code: 0,
+      data: mock({
+        token: () => Random.sentence()
+      })
+    }
   }
 }

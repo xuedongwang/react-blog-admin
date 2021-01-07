@@ -6,8 +6,8 @@ export const FETCH_ARTICLE_LIST_ASYNC = 'FETCH_ARTICLE_LIST_ASYNC'; // 获取文
 export const FETCH_USERINFO_ASYNC = 'FETCH_USERINFO_ASYNC'; // 获取用户信息
 export const SET_USERINFO = 'SET_USERINFO'; // 设置用户信息
 
-export const FETCH_QR_CODE_ASYNC = 'FETCH_QR_CODE_ASYNC'; // 获取登录的小程序二维码
-export const SET_QR_CODE = 'SET_QR_CODE'; // 设置登录的小程序二维码
+export const USER_LOGIN_ASYNC = 'USER_LOGIN_ASYNC'; // 用户登录
+export const SET_LOGIN_INFO = 'SET_LOGIN_INFO'; // 设置用户登录信息
 
 export const FETCH_STATISTICS_ASYNC = 'FETCH_STATISTICS_ASYNC'; // 获取统计数据
 export const SET_STATISTICS = 'SET_STATISTICS'; // 设置统计数据

@@ -3,7 +3,7 @@ const controller = require('./controller');
 const delay = require('./middleware/delay');
 module.exports = router => {
   router.get('/userinfo', controller.user.info)
-  router.get('/get_qr_code', controller.common.qrCode)
+  router.post('/login', controller.user.login)
   router.get('/statistics', controller.common.statistics)
   router.get('/article_list', controller.article.list)
   router.get('/create_article', delay(1000),controller.article.create)

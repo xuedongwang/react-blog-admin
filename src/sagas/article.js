@@ -15,7 +15,7 @@ function * fetchArticleListAsync ({ payload }) {
   }
 }
 
-export function * watchFetchArticleListAsync () {
+export function * watchFetchArticleList () {
   try {
     yield takeEvery(FETCH_ARTICLE_LIST_ASYNC, fetchArticleListAsync);
   } catch (error) {

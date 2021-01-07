@@ -3,7 +3,7 @@ import Common from './Common'
 
 const mapStateToProps = state => ({
   breadcrumb: state.common.breadcrumb,
-  user: state.user
+  user: state.user.info
 })
 
 const mapDispatchToProps = dispatch => ({})

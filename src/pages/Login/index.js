@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { fetchQRCodeAsync } from '@/actions';
+import { userLoginAsync } from '@/actions';
 
 const mapStateToProps = state => ({
-  loginQRCode: state.common.loginQRCode
+  userLoginInfo: state.user.userLoginInfo
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchQRCodeAsync: payload => dispatch(fetchQRCodeAsync(payload))
+  userLoginAsync: payload => dispatch(userLoginAsync(payload))
 })
 
 export default connect(
