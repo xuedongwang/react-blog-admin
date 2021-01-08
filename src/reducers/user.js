@@ -1,6 +1,9 @@
 import { SET_USERINFO, SET_LOGIN_INFO } from '@/actions/actionTypes';
 
-const initState = {};
+const initState = {
+  info: {},
+  userLoginInfo: {}
+};
 
 const article = (state = initState, action) => {
   switch (action.type) {

@@ -1,10 +1,12 @@
 import { connect } from 'react-redux'
 import Common from './Common'
 
-const mapStateToProps = state => ({
-  breadcrumb: state.common.breadcrumb,
-  user: state.user.info
-})
+const mapStateToProps = state => {
+  return {
+    breadcrumb: state.common.breadcrumb,
+    user: state.user.info
+  }
+}
 
 const mapDispatchToProps = dispatch => ({})
 

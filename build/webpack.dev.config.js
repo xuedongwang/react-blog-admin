@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const express = require('express');
 const HTMLPlugin = require('html-webpack-plugin');
 const packageJson = require('../package.json');
 
@@ -98,6 +99,9 @@ const devWebpackConfig = {
     historyApiFallback: true,
     overlay: {
       errors: true
+    },
+    before: function(app, server, compiler) {
+      app.use(express.static(path.join(__dirname, '../public')))
     },
     proxy: {}
   },

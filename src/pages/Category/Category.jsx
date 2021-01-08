@@ -40,7 +40,8 @@ class Category extends Component {
   constructor (props) {
     super(props);
   }
-  componentDidMount () {}
+  componentDidMount () {
+  }
   render () {
     return (
       <div>

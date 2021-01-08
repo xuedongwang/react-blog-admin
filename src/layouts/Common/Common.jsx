@@ -43,7 +43,6 @@ class Common extends Component {
     });
   }
   render () {
-    console.log(this.props);
     const { user, breadcrumb, children } = this.props;
     return (
       <div className={style.layout}>
