@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Card, Button, Tag, Space, Popconfirm, Descriptions } from 'antd';
+import { Table, Card, Button, Tag, Space, Popconfirm, Descriptions, Input } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { accounting, timeago } from '@/helper';
-
+const { Search } = Input;
 const colors = [
   'magenta',
   'red',
@@ -77,6 +77,9 @@ class Article extends Component {
   handleDelete = args => {
     console.log(args)
   }
+  handleSearch = args => {
+    console.log(args)
+  }
   render () {
     const { article } = this.props;
     const { list, total, perPage: pageSize, currentPage: current } = article;
@@ -142,11 +145,20 @@ class Article extends Component {
     return (
       <div>
         <Card title="文章管理" bordered={false} extra={<Button type="primary" loading={this.state.createArticleLoading} onClick={this.handleCreateArticle}>新建文章</Button>}>
+          <Search
+            placeholder="根据文章标题或ID检索文章"
+            size="large"
+            onSearch={this.handleSearch}
+            allowClear={true}
+          />
           <Table
             pagination={{
               total,
               current,
               pageSize
+            }}
+            style={{
+              marginTop: 20
             }}
             onChange={this.handChange}
             dataSource={list}
