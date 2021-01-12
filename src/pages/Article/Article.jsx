@@ -162,6 +162,7 @@ class Article extends Component {
             }}
             onChange={this.handChange}
             dataSource={list}
+            loading={this.props.loading}
             columns={columns}
             rowKey="id"
             expandable={{

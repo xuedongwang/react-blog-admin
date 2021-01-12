@@ -1,4 +1,4 @@
-import { SET_STATISTICS, SET_BREADCRUMB } from '@/actions/actionTypes';
+import { SET_STATISTICS, SET_BREADCRUMB, SET_GLOBAL_LOADING } from '@/actions/actionTypes';
 
 
 const initState = {
@@ -8,15 +8,20 @@ const initState = {
     commentCount: '-'
   },
   breadcrumb: [],
-  userLoginInfo: ''
+  loading: false
 };
 
 const common = (state = initState, action) => {
   switch (action.type) {
+    case SET_GLOBAL_LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      }
     case SET_STATISTICS:
       return {
         ...state,
-        statistics: action.data
+        statistics: action.payload
       }
     case SET_BREADCRUMB:
       return {

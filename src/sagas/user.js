@@ -10,7 +10,7 @@ import * as Api from '@/api';
 function * fetchUserinfoAsync () {
   try {
     const { data } = yield call(Api.fetchUserinfo);
-    yield put({ type: SET_USERINFO, data });
+    yield put({ type: SET_USERINFO, payload: data });
   } catch (error) {
     throw error;
   }
@@ -28,7 +28,7 @@ export function * watchFetchUserinfo () {
 function * userLoginAsync ({ payload }) {
   try {
     const { data } = yield call(() => Api.userLogin(payload));
-    yield put({ type: SET_LOGIN_INFO, data });
+    yield put({ type: SET_LOGIN_INFO, payload: data });
   } catch (error) {
     throw error;
   }

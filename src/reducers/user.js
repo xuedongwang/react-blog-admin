@@ -10,12 +10,12 @@ const article = (state = initState, action) => {
     case SET_LOGIN_INFO:
       return {
         ...state,
-        userLoginInfo: action.data
+        userLoginInfo: action.payload
       };
     case SET_USERINFO:
       return {
         ...state,
-        info: action.data
+        info: action.payload
       };
     default:
       return state;

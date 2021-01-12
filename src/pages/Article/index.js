@@ -3,7 +3,8 @@ import Article from './Article'
 import { fetchArticleListAsync } from '@/actions'
 
 const mapStateToProps = state => ({
-  article: state.article
+  article: state.article,
+  loading: state.article.loading
 })
 
 const mapDispatchToProps = dispatch => ({
