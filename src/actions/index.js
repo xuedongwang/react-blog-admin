@@ -1,3 +1,4 @@
-export * from './article';
-export * from './user';
-export * from './common';
+export * as article from './article';
+export * as user from './user';
+export * as common from './common';
+export * as category from './category';

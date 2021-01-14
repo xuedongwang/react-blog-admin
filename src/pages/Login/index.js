@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { userLoginAsync } from '@/actions';
+import { user } from '@/actions';
 
 const mapStateToProps = state => ({
   userLoginInfo: state.user.userLoginInfo
 })
 
 const mapDispatchToProps = dispatch => ({
-  userLoginAsync: payload => dispatch(userLoginAsync(payload))
+  userLoginAsync: payload => dispatch(user.userLoginAsync(payload))
 })
 
 export default connect(

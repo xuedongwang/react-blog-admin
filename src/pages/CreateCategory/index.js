@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import CreateCategory from './CreateCategory'
-import { setBreadcrumb } from '@/actions'
+import { common } from '@/actions'
 
 const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
-  setBreadcrumb : payload => dispatch(setBreadcrumb(payload))
+  setBreadcrumb : payload => dispatch(common.setBreadcrumb(payload))
 })
 
 export default connect(

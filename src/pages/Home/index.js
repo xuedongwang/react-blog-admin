@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchStatisticsAsync } from '@/actions'
-
+import { common } from '@/actions'
 import Home from './Home'
 
 const mapStateToProps = state => ({
@@ -8,7 +7,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchStatisticsAsync: payload => dispatch(fetchStatisticsAsync(payload))
+  fetchStatisticsAsync: payload => dispatch(common.fetchStatisticsAsync(payload))
 })
 
 export default connect(

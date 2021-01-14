@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Table, Card, Button, Tag, Space, Popconfirm, Descriptions, Input } from 'antd';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { accounting, timeago } from '@/helper';
 const { Search } = Input;
 const colors = [
@@ -67,18 +67,22 @@ class Article extends Component {
     this.props.fetchArticleListAsync({
       params: {
         currentPage: current,
-        perPage: pageSize
+        perPage: pageSize,
+        keyword: ''
       }
     });
-  }
-  handleEdit = args => {
-    console.log(args)
   }
   handleDelete = args => {
     console.log(args)
   }
-  handleSearch = args => {
-    console.log(args)
+  handleSearch = keyword => {
+    this.props.fetchArticleListAsync({
+      params: {
+        currentPage: 1,
+        perPage: this.props.article.perPage,
+        keyword
+      }
+    });
   }
   render () {
     const { article } = this.props;
@@ -128,7 +132,9 @@ class Article extends Component {
         key: 'action',
         render: row => (
           <Space size="middle">
-            <Button size="small" type="primary" onClick={() => this.handleEdit(row)}>编辑</Button>
+            <Button size="small" type="primary">
+              <Link to={`/edit-article?id=${row.id}`}>编辑</Link>
+            </Button>
             <Popconfirm
               placement="topRight"
               title={`确定删除这篇文章吗?`}
@@ -160,11 +166,11 @@ class Article extends Component {
             style={{
               marginTop: 20
             }}
+            rowKey="id"
             onChange={this.handChange}
             dataSource={list}
             loading={this.props.loading}
             columns={columns}
-            rowKey="id"
             expandable={{
               expandedRowRender: record =>(
                 <Descriptions

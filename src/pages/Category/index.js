@@ -1,9 +1,14 @@
 import { connect } from 'react-redux'
 import Category from './Category'
+import { category } from '@/actions'
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+  category: state.category
+})
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  fetchCategoryListAsync: () => dispatch(category.fetchCategoryListAsync())
+})
 
 export default connect(
   mapStateToProps,

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Article from './Article'
-import { fetchArticleListAsync } from '@/actions'
+import { article } from '@/actions'
 
 const mapStateToProps = state => ({
   article: state.article,
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchArticleListAsync: payload => dispatch(fetchArticleListAsync(payload))
+  fetchArticleListAsync: payload => dispatch(article.fetchArticleListAsync(payload))
 })
 
 export default connect(

@@ -1,7 +1,6 @@
 
 const { mock, Random } = require('mockjs');
 
-const total = Random.natural(0, 10000);
 module.exports = {
   saveContent: async ctx => {
     ctx.body = {
@@ -46,6 +45,7 @@ module.exports = {
     }
   },
   list: async ctx => {
+    const total = Random.natural(0, 10000);
     const { perPage, currentPage } = ctx.query;
     const pageSize = parseInt(perPage) || 1;
     const current = parseInt(currentPage) || 10;

@@ -45,7 +45,7 @@ const routes = [
     }
   },
   {
-    path: '/create-category',
+    path: ['/create-category', '/edit-category'],
     component: CreateCategory,
     layout: Common,
     exact: true,
@@ -67,7 +67,7 @@ const routes = [
     }
   },
   {
-    path: '/create-article',
+    path: ['/create-article', '/edit-article'],
     component: CreateArticle,
     layout: Blank,
     exact: true,

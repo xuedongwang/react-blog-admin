@@ -6,7 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 import { AppContainer } from 'react-hot-loader';
 import rootReducer from './reducers';
-import { fetchUserinfoAsync } from './actions'
+import { user } from './actions'
 import App from './App.jsx';
 import './assets/scss';
 import zhCN from 'antd/es/locale/zh_CN';
@@ -23,7 +23,7 @@ const store = createStore(
   )
 );
 sagaMiddleware.run(rootSaga);
-store.dispatch(fetchUserinfoAsync());
+store.dispatch(user.fetchUserinfoAsync());
 
 const render = App => {
   ReactDOM.render(
