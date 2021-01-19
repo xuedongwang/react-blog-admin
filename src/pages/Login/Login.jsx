@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Card, Form, Input, Button, Space, Divider } from 'antd';
+import { Card, Form, Input, Button, Divider } from 'antd';
 import style from './style.module';
-// import { uuid } from '@/helper';
 
 const layout = {
   labelCol: {
@@ -19,8 +18,8 @@ const tailLayout = {
 };
 
 class Login extends Component {
-  onFinish = (values) => {
-    this.props.userLoginAsync(values)
+  handleLogin = (values) => {
+    this.props.userLoginAsync(values);
   }
   render () {
     return (
@@ -31,14 +30,12 @@ class Login extends Component {
           }} title="登录">
           <Form
             {...layout}
-            style={{
-            }}
             name="basic"
             initialValues={{
               username: '',
               password: ''
             }}
-            onFinish={this.onFinish}
+            onFinish={this.handleLogin}
           >
             <Form.Item
               label="用户名"
