@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Form, Input, Button, Divider } from 'antd';
+import { Link } from 'react-router-dom';
 import style from './style.module';
 
 const layout = {
@@ -44,7 +45,7 @@ class Login extends Component {
                 {
                   required: true,
                   message: '请输入账号',
-                },
+                }
               ]}
             >
               <Input />
@@ -57,7 +58,7 @@ class Login extends Component {
                 {
                   required: true,
                   message: '请输入密码',
-                },
+                }
               ]}
             >
               <Input.Password />
@@ -69,9 +70,9 @@ class Login extends Component {
               </Button>
             </Form.Item>
             <Form.Item {...tailLayout}>
-              <a href="/register">注册账号</a>
+              <Link to="/register">注册账号</Link>
               <Divider type="vertical" />
-              <a href="/register">忘记密码？</a>
+              <Link to="/register">忘记密码？</Link>
             </Form.Item>
           </Form>
         </Card>
