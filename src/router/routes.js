@@ -10,6 +10,7 @@ import Category from '@/pages/Category';
 import CreateCategory from '@/pages/CreateCategory';
 import NotFound from '@/pages/NotFound';
 import Comment from '@/pages/Comment';
+import ResourceLib from '@/pages/ResourceLib';
 
 const routes = [
   {
@@ -32,6 +33,17 @@ const routes = [
     meta: {
       title: '留言管理',
       activeMenu: '/comment'
+    }
+  },
+  {
+    path: '/resource-lib',
+    component: ResourceLib,
+    layout: Common,
+    exact: true,
+    strict: true,
+    meta: {
+      title: '资源库',
+      activeMenu: '/resource-lib'
     }
   },
   {

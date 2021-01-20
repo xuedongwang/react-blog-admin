@@ -25,9 +25,8 @@ class CreateArticle extends Component {
         }
       ]
     }
-    this.onLoadMore = this.onLoadMore.bind(this);
   }
-  onLoadMore () {
+  onLoadMore = () => {
     const newList = [
       {
         id: Math.random(),

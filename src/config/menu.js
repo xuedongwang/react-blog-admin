@@ -53,8 +53,8 @@ const menuConfig = {
     //   icon: BarChartOutlined
     // },
     {
-      path: '/material',
-      key: '/material',
+      path: '/resource-lib',
+      key: '/resource-lib',
       name: '素材库',
       icon: FolderOpenOutlined
     },
