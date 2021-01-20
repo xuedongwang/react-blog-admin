@@ -128,7 +128,6 @@ class Home extends Component {
                           title={<Link to={`/resource-lib/${tab.type}/${item.id}`}>{item.id}</Link>}
                           description="Ant Design, a design language for background applications, is refined by Ant UED Team"
                         />
-                        <div>content</div>
                       </Skeleton>
                     </List.Item>
                   )}
