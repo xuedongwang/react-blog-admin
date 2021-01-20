@@ -72,7 +72,7 @@ class Login extends Component {
             <Form.Item {...tailLayout}>
               <Link to="/register">注册账号</Link>
               <Divider type="vertical" />
-              <Link to="/register">忘记密码？</Link>
+              <Link to="/reset-password">忘记密码？</Link>
             </Form.Item>
           </Form>
         </Card>

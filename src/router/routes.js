@@ -3,6 +3,7 @@ import Common from '@/layouts/Common/index.js';
 import Blank from '@/layouts/Blank';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
+import ResetPassword from '@/pages/ResetPassword';
 import Article from '@/pages/Article';
 import CreateArticle from '@/pages/CreateArticle';
 import Category from '@/pages/Category';
@@ -84,6 +85,16 @@ const routes = [
     strict: true,
     meta: {
       title: '注册',
+    }
+  },
+  {
+    path: '/reset-password',
+    component: ResetPassword,
+    layout: Blank,
+    exact: true,
+    strict: true,
+    meta: {
+      title: '重置密码',
     }
   },
   {

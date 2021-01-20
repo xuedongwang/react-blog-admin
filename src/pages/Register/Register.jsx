@@ -131,7 +131,7 @@ class Login extends Component {
             >
               <Input.Password />
             </Form.Item>
-            <Form.Item label="验证码" required extra={this.state.captchaHasSend ? '验证码已发送到你的邮箱' : ''}>
+            <Form.Item label="验证码" required={true} extra={this.state.captchaHasSend ? '验证码已发送到你的邮箱' : ''}>
               <Row gutter={8}>
                 <Col span={12}>
                   <Form.Item
